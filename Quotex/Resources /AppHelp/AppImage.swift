@@ -40,4 +40,5 @@ enum AppImage: String, AppImageProtocol {
     // MARK: - Onboarding
     
     case onboardingLogo1
+    case onboardingLogo2
 }

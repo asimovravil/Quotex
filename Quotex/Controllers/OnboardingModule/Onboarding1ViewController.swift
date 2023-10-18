@@ -40,7 +40,7 @@ final class Onboarding1ViewController: UIViewController {
         return label
     }()
     
-    private lazy var onboardingLogoView1: UIImageView = {
+    private lazy var onboardingLogoView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = AppImage.onboardingLogo1.uiImage
         imageView.layer.masksToBounds = true
@@ -55,6 +55,7 @@ final class Onboarding1ViewController: UIViewController {
         button.backgroundColor = AppColor.blueCustom.uiColor
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 20)
         button.layer.cornerRadius = 16
+        button.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -71,7 +72,7 @@ final class Onboarding1ViewController: UIViewController {
     // MARK: - setupViews
     
     private func setupViews() {
-        [skipButton, titleLabel, subTitleLabel, onboardingLogoView1, nextButton].forEach {
+        [skipButton, titleLabel, subTitleLabel, onboardingLogoView, nextButton].forEach {
             view.addSubview($0)
         }
         view.backgroundColor = AppColor.blackCustom.uiColor
@@ -90,7 +91,7 @@ final class Onboarding1ViewController: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
-        onboardingLogoView1.snp.makeConstraints { make in
+        onboardingLogoView.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(100)
             make.centerX.equalToSuperview()
         }
@@ -111,7 +112,16 @@ final class Onboarding1ViewController: UIViewController {
     }
 
     @objc private func skipButtonTapped() {
-//        let onboarding2ViewController = Onboarding2ViewController() // Создайте экземпляр Onboarding2ViewController
-//        navigationController?.pushViewController(onboarding2ViewController, animated: true) // Выполните переход
+        let controller = SplashViewController()
+        controller.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    // MARK: - Actions
+    
+    @objc private func nextButtonTapped() {
+        let controller = Onboarding2ViewController()
+        controller.navigationItem.hidesBackButton = true
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
