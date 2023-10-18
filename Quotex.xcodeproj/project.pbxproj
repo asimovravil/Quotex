@@ -52,6 +52,7 @@
 		F10F39BA2AE03FCA00290FBC /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39B92AE03FCA00290FBC /* AppStorage.swift */; };
 		F10F39BC2AE03FDE00290FBC /* ExternalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39BB2AE03FDE00290FBC /* ExternalService.swift */; };
 		F10F39BE2AE0403000290FBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F10F39BD2AE0403000290FBC /* GoogleService-Info.plist */; };
+		F10F39C12AE0411700290FBC /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39C02AE0411700290FBC /* Onboarding1ViewController.swift */; };
 		F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DB2AE0391D0018831B /* AppDelegate.swift */; };
 		F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DD2AE0391D0018831B /* SceneDelegate.swift */; };
 		F123C4E02AE0391D0018831B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DF2AE0391D0018831B /* SplashViewController.swift */; };
@@ -76,6 +77,7 @@
 		F10F39B92AE03FCA00290FBC /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		F10F39BB2AE03FDE00290FBC /* ExternalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalService.swift; sourceTree = "<group>"; };
 		F10F39BD2AE0403000290FBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F10F39C02AE0411700290FBC /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
 		F123C4D82AE0391D0018831B /* Quotex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F123C4DB2AE0391D0018831B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F123C4DD2AE0391D0018831B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,14 @@
 			path = SplashScreen;
 			sourceTree = "<group>";
 		};
+		F10F39BF2AE0410400290FBC /* OnboardingModule */ = {
+			isa = PBXGroup;
+			children = (
+				F10F39C02AE0411700290FBC /* Onboarding1ViewController.swift */,
+			);
+			path = OnboardingModule;
+			sourceTree = "<group>";
+		};
 		F123C4CF2AE0391D0018831B = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				F10F39B62AE03F9000290FBC /* SplashScreen */,
+				F10F39BF2AE0410400290FBC /* OnboardingModule */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -361,6 +372,7 @@
 				F123C4E02AE0391D0018831B /* SplashViewController.swift in Sources */,
 				F10F39792AE03B5500290FBC /* AppColor.swift in Sources */,
 				F10F39772AE03B5000290FBC /* AppImage.swift in Sources */,
+				F10F39C12AE0411700290FBC /* Onboarding1ViewController.swift in Sources */,
 				F10F39BA2AE03FCA00290FBC /* AppStorage.swift in Sources */,
 				F10F39BC2AE03FDE00290FBC /* ExternalService.swift in Sources */,
 				F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */,
