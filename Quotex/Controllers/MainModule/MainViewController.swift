@@ -52,6 +52,16 @@ final class MainViewController: UIViewController {
     
     // MARK: - UI
     
+    public lazy var hotNewsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Hot News"
+        label.textAlignment = .center
+        label.textColor = AppColor.whiteCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        label.numberOfLines = 0
+        return label
+    }()
+    
     private lazy var shadeView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = AppImage.shademain.uiImage
@@ -92,6 +102,7 @@ final class MainViewController: UIViewController {
     // MARK: - setupViews
     
     private func setupViews() {
+        view.addSubview(hotNewsLabel)
         view.addSubview(shadeView)
         view.addSubview(mainCollectionView)
         mainCollectionView.addSubview(separatorImageView)
@@ -101,6 +112,10 @@ final class MainViewController: UIViewController {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
+        hotNewsLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(70)
+            make.centerX.equalToSuperview()
+        }
         shadeView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
             make.centerX.equalToSuperview()
@@ -117,13 +132,6 @@ final class MainViewController: UIViewController {
     // MARK: - setupNavigationBar
     
     private func setupNavigationBar() {
-        let titleLabel = UILabel()
-        titleLabel.text = "Hot News"
-        titleLabel.font = UIFont(name: "SFProDisplay-Regular", size: 16)
-        titleLabel.textColor = AppColor.whiteCustom.uiColor
-        titleLabel.sizeToFit()
-        
-        navigationItem.titleView = titleLabel
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
