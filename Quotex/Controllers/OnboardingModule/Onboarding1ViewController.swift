@@ -113,7 +113,7 @@ final class Onboarding1ViewController: UIViewController {
     }
 
     @objc private func skipButtonTapped() {
-        let controller = MainViewController()
+        let controller = TabBarController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }

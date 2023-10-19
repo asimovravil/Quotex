@@ -279,4 +279,17 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             separatorImageView.image = separatorImages[indexPath.item]
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let section = sections[indexPath.section]
+        switch section {
+        case .promos:
+            break
+        case .main:
+            if indexPath.item == 0 {
+                let quizViewController = QuizViewController() 
+                navigationController?.pushViewController(quizViewController, animated: true)
+            }
+        }
+    }
 }

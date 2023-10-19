@@ -314,8 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				F10F39B62AE03F9000290FBC /* SplashScreen */,
-				F10F39EA2AE1701300290FBC /* TabBarModule */,
 				F10F39BF2AE0410400290FBC /* OnboardingModule */,
+				F10F39EA2AE1701300290FBC /* TabBarModule */,
 				F10F39C42AE0D79A00290FBC /* MainModule */,
 				F10F39CF2AE12A5500290FBC /* QuizModule */,
 				F10F39D92AE15C2400290FBC /* WinModule */,
