@@ -72,4 +72,11 @@ enum AppImage: String, AppImageProtocol {
     case submitQuiz
     case cardQuiz
     case tradingChart
+    
+    // MARK: - Settings
+    
+    case notification
+    case rateUs
+    case shareApp
+    case privacyPolicy
 }
