@@ -12,6 +12,7 @@ import SDWebImage
 final class ArticleViewController: UIViewController {
 
     var articles: [Article] = []
+    var article: Article?
     
     // MARK: - UI
     
@@ -57,19 +58,15 @@ final class ArticleViewController: UIViewController {
     // MARK: - loadArticles
     
     func loadArticles() {
-        let newsAPI = NewsAPI()
-        newsAPI.fetchArticles { [weak self] result in
-            switch result {
-            case .success(let articles):
-                DispatchQueue.main.async {
-                    self?.articles = articles
-                    self?.tableView.reloadData()
-                }
-            case .failure(let error):
-                print("Error fetching articles: \(error)")
-            }
+        guard let article = self.article else {
+            print("Article is nil")
+            return
         }
+
+        articles = [article]
+        tableView.reloadData()
     }
+
 }
 
 extension ArticleViewController: UITableViewDataSource, UITableViewDelegate {
@@ -87,6 +84,10 @@ extension ArticleViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row < articles.count {
             let article = articles[indexPath.row]
             cell.configure(with: article)
+        }
+        
+        cell.nextNewsButtonTappedHandler = {
+            self.navigationController?.popViewController(animated: true)
         }
         
         return cell

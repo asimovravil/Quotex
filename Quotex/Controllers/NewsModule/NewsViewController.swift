@@ -11,6 +11,7 @@ import SnapKit
 final class NewsViewController: UIViewController {
 
     var articles: [Article] = []
+    var article: Article? 
     
     // MARK: - UI
     
@@ -124,5 +125,10 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let article = articles[indexPath.row]
+        let articleVC = ArticleViewController()
+        articleVC.article = article
+        navigationController?.pushViewController(articleVC, animated: true)
     }
 }

@@ -12,6 +12,7 @@ import SDWebImage
 final class ArticleTableViewCell: UITableViewCell {
 
     static let reuseID = String(describing: ArticleTableViewCell.self)
+    var nextNewsButtonTappedHandler: (() -> Void)?
 
     // MARK: - UI
     
@@ -130,5 +131,6 @@ final class ArticleTableViewCell: UITableViewCell {
     }
         
     @objc private func nextNewsButtonTapped() {
+        nextNewsButtonTappedHandler?()
     }
 }
