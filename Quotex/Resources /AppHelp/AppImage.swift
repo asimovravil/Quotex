@@ -58,4 +58,12 @@ enum AppImage: String, AppImageProtocol {
     
     case onboardingLogo1
     case onboardingLogo2
+    
+    // MARK: - Quiz
+    
+    case nextInactive
+    case next
+    case previousInactive
+    case previous
+    case submitQuiz
 }
