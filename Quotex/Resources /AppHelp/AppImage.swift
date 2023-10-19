@@ -53,6 +53,9 @@ enum AppImage: String, AppImageProtocol {
     case bluesep2
     case bluesep3
     case bluesep4
+    case backgroundResult
+    case cardResult
+    case closecircle
     
     // MARK: - Onboarding
     
@@ -67,4 +70,5 @@ enum AppImage: String, AppImageProtocol {
     case previous
     case submitQuiz
     case cardQuiz
+    case tradingChart
 }

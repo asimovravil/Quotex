@@ -62,6 +62,7 @@
 		F10F39D32AE12AA400290FBC /* QuizTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39D22AE12AA400290FBC /* QuizTableViewCell.swift */; };
 		F10F39D62AE12AAF00290FBC /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39D52AE12AAF00290FBC /* Question.swift */; };
 		F10F39D82AE12AB700290FBC /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39D72AE12AB700290FBC /* QuizBrain.swift */; };
+		F10F39DB2AE15C5D00290FBC /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39DA2AE15C5D00290FBC /* WinViewController.swift */; };
 		F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DB2AE0391D0018831B /* AppDelegate.swift */; };
 		F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DD2AE0391D0018831B /* SceneDelegate.swift */; };
 		F123C4E02AE0391D0018831B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DF2AE0391D0018831B /* SplashViewController.swift */; };
@@ -96,6 +97,7 @@
 		F10F39D22AE12AA400290FBC /* QuizTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewCell.swift; sourceTree = "<group>"; };
 		F10F39D52AE12AAF00290FBC /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		F10F39D72AE12AB700290FBC /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
+		F10F39DA2AE15C5D00290FBC /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		F123C4D82AE0391D0018831B /* Quotex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F123C4DB2AE0391D0018831B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F123C4DD2AE0391D0018831B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		F10F39D92AE15C2400290FBC /* WinModule */ = {
+			isa = PBXGroup;
+			children = (
+				F10F39DA2AE15C5D00290FBC /* WinViewController.swift */,
+			);
+			path = WinModule;
+			sourceTree = "<group>";
+		};
 		F123C4CF2AE0391D0018831B = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +274,7 @@
 				F10F39BF2AE0410400290FBC /* OnboardingModule */,
 				F10F39C42AE0D79A00290FBC /* MainModule */,
 				F10F39CF2AE12A5500290FBC /* QuizModule */,
+				F10F39D92AE15C2400290FBC /* WinModule */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -432,6 +443,7 @@
 				F10F39D82AE12AB700290FBC /* QuizBrain.swift in Sources */,
 				F10F39BA2AE03FCA00290FBC /* AppStorage.swift in Sources */,
 				F10F39BC2AE03FDE00290FBC /* ExternalService.swift in Sources */,
+				F10F39DB2AE15C5D00290FBC /* WinViewController.swift in Sources */,
 				F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */,
 				F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */,
 				F10F39C32AE0479000290FBC /* Onboarding2ViewController.swift in Sources */,

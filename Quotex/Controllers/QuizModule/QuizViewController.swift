@@ -109,12 +109,18 @@ final class QuizViewController: UIViewController {
         titleLabel.font = UIFont(name: "SFProDisplay-Regular", size: 16)
         titleLabel.textColor = AppColor.whiteCustom.uiColor
         titleLabel.sizeToFit()
-        
+
         navigationItem.titleView = titleLabel
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: timerLabel)
+        
+        let timerLabelBarButton = UIBarButtonItem(customView: timerLabel)
+        timerLabelBarButton.customView?.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-16)
+        }
+        
+        navigationItem.rightBarButtonItem = timerLabelBarButton
     }
-    
+
     func moveToNextQuestion() {
         currentQuestionNumber += 1
         setupNavigationBar()

@@ -38,9 +38,9 @@ final class QuizTableViewCell: UITableViewCell {
     
     private lazy var questionImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = AppImage.tradingChart.uiImage
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
-        imageView.isHidden = true
         return imageView
     }()
     
@@ -149,9 +149,10 @@ final class QuizTableViewCell: UITableViewCell {
             make.bottom.equalTo(quizCardView.snp.bottom).offset(-24)
         }
         questionImage.snp.makeConstraints { make in
-            make.top.equalTo(questionLabel.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
+            make.top.equalTo(quizCardView.snp.bottom).offset(32)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalTo(quizCardView.snp.top).offset(-32)
         }
         firstAnswerButton.snp.makeConstraints { make in
             make.top.equalTo(quizCardView.snp.bottom).offset(180)
@@ -206,6 +207,7 @@ final class QuizTableViewCell: UITableViewCell {
     
     @objc private func nextQuizButtonTapped() {
         quizBrain.nextQuestion()
+        
         if quizBrain.questionNumber == 0 {
             showResultViewController()
         } else {
@@ -280,12 +282,12 @@ final class QuizTableViewCell: UITableViewCell {
     }
     
     private func showResultViewController() {
-//        if userCorrectAnswers == 10 {
-//            let winViewController = SplashViewController()
-//            winViewController.userCorrectAnswers = userCorrectAnswers
-//            winViewController.navigationItem.hidesBackButton = true
-//            self.navigationController?.pushViewController(winViewController, animated: true)
-//        } else {
+        if userCorrectAnswers == 10 {
+            let winViewController = WinViewController()
+            winViewController.userCorrectAnswers = userCorrectAnswers
+            winViewController.navigationItem.hidesBackButton = true
+            self.navigationController?.pushViewController(winViewController, animated: true)
+        } 
 //            let loseViewController = SplashViewController()
 //            loseViewController.userCorrectAnswers = userCorrectAnswers
 //            loseViewController.navigationItem.hidesBackButton = true
