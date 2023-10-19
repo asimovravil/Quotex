@@ -122,7 +122,7 @@ final class LoseViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-16)
         }
         cardResultView.snp.makeConstraints { make in
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(125)
+            make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
         }
         amountLabel.snp.makeConstraints { make in

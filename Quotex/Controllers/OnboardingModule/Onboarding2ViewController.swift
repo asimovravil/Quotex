@@ -91,14 +91,20 @@ final class Onboarding2ViewController: UIViewController {
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
         }
+
         onboardingLogoView.snp.makeConstraints { make in
+            if UIScreen.main.bounds.size.height >= 812 {
+                make.bottom.equalTo(startButton.snp.top).offset(130)
+            } else {
+                make.top.equalTo(subTitleLabel.snp.bottom).offset(18)
+            }
             make.bottom.equalTo(startButton.snp.top).offset(130)
             make.centerX.equalToSuperview()
         }
         startButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-64)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-64)
             make.height.equalTo(60)
         }
     }

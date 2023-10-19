@@ -97,9 +97,9 @@ final class Onboarding1ViewController: UIViewController {
             make.centerX.equalToSuperview()
         }
         nextButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-64)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-64)
             make.height.equalTo(60)
         }
     }

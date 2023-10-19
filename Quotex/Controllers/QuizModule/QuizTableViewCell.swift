@@ -149,10 +149,10 @@ final class QuizTableViewCell: UITableViewCell {
             make.bottom.equalTo(quizCardView.snp.bottom).offset(-24)
         }
         questionImage.snp.makeConstraints { make in
-            make.top.equalTo(quizCardView.snp.bottom).offset(32)
+            make.top.equalTo(quizCardView.snp.bottom).offset(16)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
-            make.bottom.equalTo(quizCardView.snp.top).offset(-32)
+            make.bottom.equalTo(firstAnswerButton.snp.top).offset(-16)
         }
         firstAnswerButton.snp.makeConstraints { make in
             make.top.equalTo(quizCardView.snp.bottom).offset(180)
@@ -233,21 +233,27 @@ final class QuizTableViewCell: UITableViewCell {
         thirdAnswerButton.backgroundColor = AppColor.blackCustom.uiColor
         fourthAnswerButton.backgroundColor = AppColor.blackCustom.uiColor
         
-        firstAnswerButton.layer.borderWidth = 0.2
+        firstAnswerButton.layer.borderWidth = 0.3
         firstAnswerButton.layer.borderColor = AppColor.grayCustom.uiColor.cgColor
         
-        secondAnswerButton.layer.borderWidth = 0.2
+        secondAnswerButton.layer.borderWidth = 0.3
         secondAnswerButton.layer.borderColor = AppColor.grayCustom.uiColor.cgColor
         
-        thirdAnswerButton.layer.borderWidth = 0.2
+        thirdAnswerButton.layer.borderWidth = 0.3
         thirdAnswerButton.layer.borderColor = AppColor.grayCustom.uiColor.cgColor
         
-        fourthAnswerButton.layer.borderWidth = 0.2
+        fourthAnswerButton.layer.borderWidth = 0.3
         fourthAnswerButton.layer.borderColor = AppColor.grayCustom.uiColor.cgColor
         
         updateButtonStates()
         answerSelected = false
         nextQuizButton.isEnabled = false
+        
+        if quizBrain.questionNumber == 9 {
+             questionImage.isHidden = false
+         } else {
+             questionImage.isHidden = true
+         }
     }
     
     @objc private func answerButtonTapped(_ sender: UIButton) {

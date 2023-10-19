@@ -22,7 +22,7 @@ struct QuizBrain {
         Question(q: "What type of investor believes in rising prices and takes long positions?", a: ["Bullish investor", "Bearish investor", "Neutral investor", "Contrarian investor"], correctAnswer: "Bullish investor"),
         Question(q: "What term describes a rapid drop in market prices resulting in panic selling?", a: ["Crash", "Correction", "Rally", "Stagnation"], correctAnswer: "Crash"),
         Question(q: "Which indicator is used to determine market trends?", a: ["Moving average", "Volume", "RSI", "MACD"], correctAnswer: "Moving average"),
-        Question(q: "What animal represents a cautious investor who avoids significant risks?", a: ["Tortoise", "Rabbit", "Hedgehog", "Squirrel"], correctAnswer: "Tortoise")
+        Question(q: "What pattern is depicted by a series of higher highs and higher lows on a trading chart?", a: ["The alphabet pattern", "The zigzag pattern", "The bullish trend pattern", "The smiley face pattern"], correctAnswer: "The zigzag pattern")
     ]
 
     mutating func prevQuestion() {

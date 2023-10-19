@@ -101,13 +101,13 @@ final class WinViewController: UIViewController {
             make.trailing.equalToSuperview().offset(-16)
         }
         cardResultView.snp.makeConstraints { make in
-            make.top.equalTo(subTitleLabel.snp.bottom).offset(125)
+            make.centerY.equalToSuperview()
             make.centerX.equalToSuperview()
         }
         nextLevelButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().offset(-64)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-64)
             make.height.equalTo(60)
         }
     }

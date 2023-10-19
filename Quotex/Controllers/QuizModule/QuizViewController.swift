@@ -32,7 +32,7 @@ final class QuizViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
-        tableView.rowHeight = 800
+        tableView.rowHeight = 700
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         return tableView
