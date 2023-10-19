@@ -56,6 +56,7 @@ enum AppImage: String, AppImageProtocol {
     case backgroundResult
     case cardResult
     case closecircle
+    case loseResult
     
     // MARK: - Onboarding
     

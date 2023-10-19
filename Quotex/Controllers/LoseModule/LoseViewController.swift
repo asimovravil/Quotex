@@ -1,5 +1,5 @@
 //
-//  WinViewController.swift
+//  LoseViewController.swift
 //  Quotex
 //
 //  Created by Ravil on 19.10.2023.
@@ -8,7 +8,9 @@
 import UIKit
 import SnapKit
 
-final class WinViewController: UIViewController {
+final class LoseViewController: UIViewController {
+    
+    var userCorrectAnswers: Int = 0
     
     // MARK: - UI
     
@@ -29,7 +31,7 @@ final class WinViewController: UIViewController {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "YOU WIN"
+        label.text = "YOU LOSE"
         label.textAlignment = .center
         label.textColor = AppColor.whiteCustom.uiColor
         label.font = UIFont(name: "SFProDisplay-Bold", size: 44)
@@ -39,7 +41,7 @@ final class WinViewController: UIViewController {
     
     private lazy var subTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Congratulations! You Really Know A Lot About\nTrading. Keep Up The Good Work!"
+        label.text = "You Have Something To Strive For. Learn More About\nTrading And Come Back Again. The Main Thing Is Not\nTo Give Up!"
         label.textAlignment = .center
         label.textColor = AppColor.grayCustom.uiColor
         label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
@@ -49,20 +51,38 @@ final class WinViewController: UIViewController {
     
     private lazy var cardResultView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = AppImage.cardResult.uiImage
+        imageView.image = AppImage.loseResult.uiImage
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
-    private lazy var nextLevelButton: UIButton = {
+    private lazy var amountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0"
+        label.textColor = AppColor.whiteCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Bold", size: 64)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var amountSubLabel: UILabel = {
+        let label = UILabel()
+        label.text = "/10"
+        label.textColor = AppColor.grayCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 32)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var homeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Next Level", for: .normal)
+        button.setTitle("Home", for: .normal)
         button.setTitleColor(AppColor.whiteCustom.uiColor, for: .normal)
         button.backgroundColor = AppColor.blueCustom.uiColor
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Medium", size: 20)
         button.layer.cornerRadius = 16
-        button.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -74,12 +94,13 @@ final class WinViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupNavigationBar()
+        calculateScore()
     }
     
     // MARK: - setupViews
     
     private func setupViews() {
-        [closeButton, backgroundImage, titleLabel, subTitleLabel, cardResultView, nextLevelButton].forEach() {
+        [closeButton, backgroundImage, titleLabel, subTitleLabel, cardResultView, amountLabel, amountSubLabel, homeButton].forEach() {
             view.addSubview($0)
         }
     }
@@ -104,7 +125,15 @@ final class WinViewController: UIViewController {
             make.top.equalTo(subTitleLabel.snp.bottom).offset(125)
             make.centerX.equalToSuperview()
         }
-        nextLevelButton.snp.makeConstraints { make in
+        amountLabel.snp.makeConstraints { make in
+            make.leading.equalTo(cardResultView.snp.leading).offset(65)
+            make.centerY.equalToSuperview()
+        }
+        amountSubLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(cardResultView.snp.trailing).offset(-57)
+            make.centerY.equalToSuperview()
+        }
+        homeButton.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-64)
             make.leading.equalToSuperview().offset(16)
             make.trailing.equalToSuperview().offset(-16)
@@ -130,9 +159,17 @@ final class WinViewController: UIViewController {
     
     // MARK: - Actions
     
-    @objc private func nextLevelButtonTapped() {
+    @objc private func homeButtonTapped() {
         let controller = MainViewController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    private func calculateScore() {
+        amountLabel.text = "\(userCorrectAnswers)"
+    }
+    
+    func configure() {
+        calculateScore()
     }
 }

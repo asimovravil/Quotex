@@ -284,16 +284,14 @@ final class QuizTableViewCell: UITableViewCell {
     private func showResultViewController() {
         if userCorrectAnswers == 10 {
             let winViewController = WinViewController()
-            winViewController.userCorrectAnswers = userCorrectAnswers
             winViewController.navigationItem.hidesBackButton = true
             self.navigationController?.pushViewController(winViewController, animated: true)
-        } 
-//            let loseViewController = SplashViewController()
-//            loseViewController.userCorrectAnswers = userCorrectAnswers
-//            loseViewController.navigationItem.hidesBackButton = true
-//            print("User Correct Answers: \(userCorrectAnswers)")
-//            self.navigationController?.pushViewController(loseViewController, animated: true)
-//        }
+        } else {
+            let loseViewController = LoseViewController()
+            loseViewController.userCorrectAnswers = userCorrectAnswers
+            loseViewController.navigationItem.hidesBackButton = true
+            self.navigationController?.pushViewController(loseViewController, animated: true)
+        }
     }
 }
 
