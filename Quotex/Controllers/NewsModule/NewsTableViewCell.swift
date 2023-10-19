@@ -15,17 +15,6 @@ final class NewsTableViewCell: UITableViewCell {
 
     // MARK: - UI
     
-    public lazy var newsTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Latest News"
-        label.textAlignment = .center
-        label.textColor = AppColor.whiteCustom.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 24)
-        label.numberOfLines = 2
-        label.isHidden = true
-        return label
-    }()
-    
     private lazy var cardNewsView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = AppImage.newscell.uiImage
@@ -71,7 +60,7 @@ final class NewsTableViewCell: UITableViewCell {
     // MARK: - setupViews
     
     private func setupViews() {
-        [newsTitleLabel, cardNewsView, newsLabel, newsSubLabel].forEach() {
+        [cardNewsView, newsLabel, newsSubLabel].forEach() {
             contentView.addSubview($0)
         }
     }
@@ -79,10 +68,6 @@ final class NewsTableViewCell: UITableViewCell {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
-        newsTitleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.bottom.equalTo(cardNewsView.snp.top).offset(-24)
-        }
         cardNewsView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.leading.equalToSuperview().offset(16)

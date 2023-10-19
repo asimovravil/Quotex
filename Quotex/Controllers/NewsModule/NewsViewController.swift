@@ -14,6 +14,16 @@ final class NewsViewController: UIViewController {
     
     // MARK: - UI
     
+    public lazy var newsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Latest News"
+        label.textAlignment = .center
+        label.textColor = AppColor.whiteCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 24)
+        label.numberOfLines = 2
+        return label
+    }()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.reuseID)
@@ -41,7 +51,7 @@ final class NewsViewController: UIViewController {
     // MARK: - setupViews
     
     private func setupViews() {
-        [tableView].forEach {
+        [newsTitleLabel, tableView].forEach {
             view.addSubview($0)
         }
     }
@@ -49,8 +59,13 @@ final class NewsViewController: UIViewController {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
+        newsTitleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(70)
+            make.leading.equalToSuperview().offset(16)
+        }
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(newsTitleLabel.snp.bottom).offset(24)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
@@ -99,10 +114,6 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         cell.selectionStyle = .none
         cell.backgroundColor = .clear
-        
-        if indexPath.item == 0 {
-            cell.newsTitleLabel.isHidden = false
-        }
         
         if indexPath.row < articles.count {
             let article = articles[indexPath.row]
