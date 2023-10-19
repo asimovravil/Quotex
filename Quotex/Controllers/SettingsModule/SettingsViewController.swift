@@ -14,6 +14,16 @@ final class SettingsViewController: UIViewController {
     
     // MARK: - UI
     
+    public lazy var settingsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Settings"
+        label.textAlignment = .left
+        label.textColor = AppColor.whiteCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 24)
+        label.numberOfLines = 2
+        return label
+    }()
+    
     private lazy var notificationView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = AppImage.notification.uiImage
@@ -55,13 +65,12 @@ final class SettingsViewController: UIViewController {
 
         setupViews()
         setupConstraints()
-        setupNavigationBar()
     }
     
     // MARK: - setupViews
     
     private func setupViews() {
-        [notificationView, switchNotification, shareAppButton, rateUsButton, privacyPolicyButton].forEach {
+        [settingsTitleLabel, notificationView, switchNotification, shareAppButton, rateUsButton, privacyPolicyButton].forEach {
             view.addSubview($0)
         }
         view.backgroundColor = AppColor.blackCustom.uiColor
@@ -70,6 +79,10 @@ final class SettingsViewController: UIViewController {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
+        settingsTitleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.bottom.equalTo(notificationView.snp.top).offset(-24)
+        }
         notificationView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(115)
             make.centerX.equalToSuperview()
@@ -93,21 +106,6 @@ final class SettingsViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.height.equalTo(69)
         }
-    }
-    
-    // MARK: - setupNavigationBar
-    
-    private func setupNavigationBar() {
-        let titleLabel = UILabel()
-        titleLabel.text = "Settings"
-        titleLabel.font = UIFont(name: "SFProDisplay-Regular", size: 24)
-        titleLabel.textColor = AppColor.whiteCustom.uiColor
-        titleLabel.sizeToFit()
-
-        let leftItem = UIBarButtonItem(customView: titleLabel)
-        navigationItem.leftBarButtonItem = leftItem
-
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     // MARK: - notificationButtonTapped

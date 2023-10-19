@@ -45,7 +45,7 @@ final class LoseViewController: UIViewController {
         label.textAlignment = .center
         label.textColor = AppColor.grayCustom.uiColor
         label.font = UIFont(name: "SFProDisplay-Regular", size: 14)
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         return label
     }()
     

@@ -6,18 +6,96 @@
 //
 
 import UIKit
+import SnapKit
 
-class NewsTableViewCell: UITableViewCell {
+final class NewsTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    static let reuseID = String(describing: NewsTableViewCell.self)
+
+    // MARK: - UI
+    
+    public lazy var newsTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Latest News"
+        label.textAlignment = .center
+        label.textColor = AppColor.whiteCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 24)
+        label.numberOfLines = 2
+        label.isHidden = true
+        return label
+    }()
+    
+    private lazy var cardNewsView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = AppImage.newscell.uiImage
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 16
+        return imageView
+    }()
+    
+    private lazy var newsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "COMMENT-Pound may come unstuck when UK CPI is less sticky"
+        label.textAlignment = .left
+        label.textColor = AppColor.whiteCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Bold", size: 20)
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private lazy var newsSubLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Oct 18, 2023 10:44"
+        label.textAlignment = .center
+        label.textColor = AppColor.grayCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 12)
+        label.numberOfLines = 3
+        return label
+    }()
+    
+    // MARK: - Lifecycle
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupViews()
+        setupConstraints()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
+    // MARK: - setupViews
+    
+    private func setupViews() {
+        [newsTitleLabel, cardNewsView, newsLabel, newsSubLabel].forEach() {
+            contentView.addSubview($0)
+        }
+    }
+    
+    // MARK: - setupConstraints
+    
+    private func setupConstraints() {
+        newsTitleLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(16)
+            make.bottom.equalTo(cardNewsView.snp.top).offset(-24)
+        }
+        cardNewsView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(8)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.bottom.equalToSuperview().offset(-8)
+        }
+        newsLabel.snp.makeConstraints { make in
+            make.leading.equalTo(cardNewsView.snp.leading).offset(16)
+            make.trailing.equalTo(cardNewsView.snp.trailing).offset(-16)
+            make.bottom.equalTo(newsSubLabel.snp.top).offset(-2)
+        }
+        newsSubLabel.snp.makeConstraints { make in
+            make.leading.equalTo(cardNewsView.snp.leading).offset(16)
+            make.bottom.equalTo(cardNewsView.snp.bottom).offset(-16)
+        }
+    }
 }

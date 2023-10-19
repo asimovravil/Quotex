@@ -77,7 +77,7 @@ final class QuizViewController: UIViewController {
         } else {
             timer?.invalidate()
             DispatchQueue.main.async { [weak self] in
-                let loseViewController = SplashViewController()
+                let loseViewController = LoseViewController()
                 self?.navigationController?.pushViewController(loseViewController, animated: true)
             }
         }
