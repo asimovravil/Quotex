@@ -18,21 +18,22 @@ final class QuizTableViewCell: UITableViewCell {
     
     // MARK: - UI
     
-    private lazy var countLabel: UILabel = {
+    private lazy var questionLabel: UILabel = {
         let label = UILabel()
-        label.text = "01/10"
+        label.text = "Hahahahaha"
         label.textColor = AppColor.whiteCustom.uiColor
-        label.font = UIFont(name: "SFProDisplay-Medium", size: 20)
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 20)
+        label.textAlignment = .center
         label.numberOfLines = 0
         return label
     }()
     
-    private lazy var questionLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = AppColor.whiteCustom.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 20)
-        label.numberOfLines = 0
-        return label
+    private lazy var quizCardView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = AppImage.cardQuiz.uiImage
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
     }()
     
     private lazy var questionImage: UIImageView = {
@@ -48,7 +49,7 @@ final class QuizTableViewCell: UITableViewCell {
         button.setTitle("1 answer", for: .normal)
         button.setTitleColor(AppColor.whiteCustom.uiColor, for: .normal)
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Regular", size: 20)
-        button.contentHorizontalAlignment = .left
+        button.contentHorizontalAlignment = .center
         button.addTarget(self, action: #selector(answerButtonTapped(_:)), for: .touchUpInside)
         button.layer.cornerRadius = 16
         return button
@@ -59,7 +60,7 @@ final class QuizTableViewCell: UITableViewCell {
         button.setTitle("2 answer", for: .normal)
         button.setTitleColor(AppColor.whiteCustom.uiColor, for: .normal)
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Regular", size: 20)
-        button.contentHorizontalAlignment = .left
+        button.contentHorizontalAlignment = .center
         button.addTarget(self, action: #selector(answerButtonTapped(_:)), for: .touchUpInside)
         button.layer.cornerRadius = 16
         return button
@@ -70,7 +71,7 @@ final class QuizTableViewCell: UITableViewCell {
         button.setTitle("3 answer", for: .normal)
         button.setTitleColor(AppColor.whiteCustom.uiColor, for: .normal)
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Regular", size: 20)
-        button.contentHorizontalAlignment = .left
+        button.contentHorizontalAlignment = .center
         button.addTarget(self, action: #selector(answerButtonTapped(_:)), for: .touchUpInside)
         button.layer.cornerRadius = 16
         return button
@@ -81,7 +82,7 @@ final class QuizTableViewCell: UITableViewCell {
         button.setTitle("4 answer", for: .normal)
         button.setTitleColor(AppColor.whiteCustom.uiColor, for: .normal)
         button.titleLabel?.font = UIFont(name: "SFProDisplay-Regular", size: 20)
-        button.contentHorizontalAlignment = .left
+        button.contentHorizontalAlignment = .center
         button.addTarget(self, action: #selector(answerButtonTapped(_:)), for: .touchUpInside)
         button.layer.cornerRadius = 16
         return button
@@ -92,6 +93,15 @@ final class QuizTableViewCell: UITableViewCell {
         button.setImage(AppImage.previousInactive.uiImage, for: .normal)
         button.addTarget(self, action: #selector(quitQuizButtonTapped), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var countLabel: UILabel = {
+        let label = UILabel()
+        label.text = "01/10"
+        label.textColor = AppColor.whiteCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 20)
+        label.numberOfLines = 0
+        return label
     }()
     
     private lazy var nextQuizButton: UIButton = {
@@ -118,7 +128,7 @@ final class QuizTableViewCell: UITableViewCell {
     // MARK: - setupViews
     
     private func setupViews() {
-        [countLabel, questionLabel, questionImage, firstAnswerButton, secondAnswerButton, thirdAnswerButton, fourthAnswerButton, quitQuizButton, nextQuizButton].forEach() {
+        [questionLabel, quizCardView, questionImage, firstAnswerButton, secondAnswerButton, thirdAnswerButton, fourthAnswerButton, quitQuizButton, countLabel, nextQuizButton].forEach() {
             contentView.addSubview($0)
         }
     }
@@ -126,15 +136,17 @@ final class QuizTableViewCell: UITableViewCell {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
-        countLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview().offset(24)
+        quizCardView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(40)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(126)
         }
         questionLabel.snp.makeConstraints { make in
-            make.top.equalTo(countLabel.snp.bottom).offset(8)
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
-            make.bottom.equalTo(questionImage.snp.top).offset(-16)
+            make.top.equalTo(quizCardView.snp.top).offset(24)
+            make.leading.equalTo(quizCardView.snp.leading).offset(16)
+            make.trailing.equalTo(quizCardView.snp.trailing).offset(-16)
+            make.bottom.equalTo(quizCardView.snp.bottom).offset(-24)
         }
         questionImage.snp.makeConstraints { make in
             make.top.equalTo(questionLabel.snp.bottom).offset(16)
@@ -142,42 +154,44 @@ final class QuizTableViewCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-24)
         }
         firstAnswerButton.snp.makeConstraints { make in
-            make.top.equalTo(questionImage.snp.bottom).offset(16)
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
-            make.height.equalTo(60)
-            make.width.equalTo(342)
+            make.top.equalTo(quizCardView.snp.bottom).offset(180)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(53)
+            make.width.equalTo(358)
         }
         secondAnswerButton.snp.makeConstraints { make in
             make.top.equalTo(firstAnswerButton.snp.bottom).offset(12)
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
-            make.height.equalTo(60)
-            make.width.equalTo(342)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(53)
+            make.width.equalTo(358)
         }
         thirdAnswerButton.snp.makeConstraints { make in
             make.top.equalTo(secondAnswerButton.snp.bottom).offset(12)
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
-            make.height.equalTo(60)
-            make.width.equalTo(342)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(53)
+            make.width.equalTo(358)
         }
         fourthAnswerButton.snp.makeConstraints { make in
             make.top.equalTo(thirdAnswerButton.snp.bottom).offset(12)
-            make.leading.equalToSuperview().offset(24)
-            make.trailing.equalToSuperview().offset(-24)
-            make.height.equalTo(60)
-            make.width.equalTo(342)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(53)
+            make.width.equalTo(358)
         }
         quitQuizButton.snp.makeConstraints { make in
             make.top.equalTo(fourthAnswerButton.snp.bottom).offset(48)
-            make.leading.equalToSuperview().offset(24)
-            make.height.equalTo(49)
+            make.leading.equalToSuperview().offset(16)
+        }
+        countLabel.snp.makeConstraints { make in
+            make.top.equalTo(fourthAnswerButton.snp.bottom).offset(66)
+            make.centerX.equalToSuperview()
         }
         nextQuizButton.snp.makeConstraints { make in
             make.top.equalTo(fourthAnswerButton.snp.bottom).offset(48)
-            make.trailing.equalToSuperview().offset(-24)
-            make.height.equalTo(49)
+            make.trailing.equalToSuperview().offset(-16)
         }
     }
     
@@ -212,10 +226,23 @@ final class QuizTableViewCell: UITableViewCell {
         
         countLabel.text = "\(quizBrain.questionNumber + 1)/\(quizBrain.quiz.count)"
         
-        firstAnswerButton.backgroundColor = AppColor.blueCustom.uiColor
-        secondAnswerButton.backgroundColor = AppColor.blueCustom.uiColor
-        thirdAnswerButton.backgroundColor = AppColor.blueCustom.uiColor
-        fourthAnswerButton.backgroundColor = AppColor.blueCustom.uiColor
+        firstAnswerButton.backgroundColor = AppColor.blackCustom.uiColor
+        secondAnswerButton.backgroundColor = AppColor.blackCustom.uiColor
+        thirdAnswerButton.backgroundColor = AppColor.blackCustom.uiColor
+        fourthAnswerButton.backgroundColor = AppColor.blackCustom.uiColor
+        
+        firstAnswerButton.layer.borderWidth = 0.2
+        firstAnswerButton.layer.borderColor = AppColor.grayCustom.uiColor.cgColor
+        
+        secondAnswerButton.layer.borderWidth = 0.2
+        secondAnswerButton.layer.borderColor = AppColor.grayCustom.uiColor.cgColor
+        
+        thirdAnswerButton.layer.borderWidth = 0.2
+        thirdAnswerButton.layer.borderColor = AppColor.grayCustom.uiColor.cgColor
+        
+        fourthAnswerButton.layer.borderWidth = 0.2
+        fourthAnswerButton.layer.borderColor = AppColor.grayCustom.uiColor.cgColor
+        
         updateButtonStates()
         answerSelected = false
         nextQuizButton.isEnabled = false
@@ -229,10 +256,10 @@ final class QuizTableViewCell: UITableViewCell {
             let userGotItRight = quizBrain.checkAnswer(userAnswer: userAnswer)
             
             if userGotItRight {
-                sender.backgroundColor = UIColor.green
+                sender.backgroundColor = AppColor.blueCustom.uiColor
                 userCorrectAnswers += 1
             } else {
-                sender.backgroundColor = UIColor.red
+                sender.backgroundColor = AppColor.blueCustom.uiColor
             }
             answerSelected = true
         }

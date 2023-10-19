@@ -66,4 +66,5 @@ enum AppImage: String, AppImageProtocol {
     case previousInactive
     case previous
     case submitQuiz
+    case cardQuiz
 }
