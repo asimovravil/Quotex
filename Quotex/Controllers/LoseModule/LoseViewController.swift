@@ -152,7 +152,7 @@ final class LoseViewController: UIViewController {
     }
 
     @objc private func closeButtonTapped() {
-        let controller = MainViewController()
+        let controller = TabBarController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -160,7 +160,7 @@ final class LoseViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func homeButtonTapped() {
-        let controller = MainViewController()
+        let controller = TabBarController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }

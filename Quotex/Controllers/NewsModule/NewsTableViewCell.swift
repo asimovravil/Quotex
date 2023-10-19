@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
 
 final class NewsTableViewCell: UITableViewCell {
 
@@ -97,5 +98,17 @@ final class NewsTableViewCell: UITableViewCell {
             make.leading.equalTo(cardNewsView.snp.leading).offset(16)
             make.bottom.equalTo(cardNewsView.snp.bottom).offset(-16)
         }
+    }
+    
+    // MARK: - Actions
+    
+    func configure(with article: Article) {
+        newsLabel.text = article.title
+        if let url = article.urlToImage {
+            cardNewsView.sd_setImage(with: url, completed: nil)
+        }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy HH:mm"
+        newsSubLabel.text = formatter.string(from: article.publishedAt)
     }
 }

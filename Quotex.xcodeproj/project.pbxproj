@@ -68,6 +68,10 @@
 		F10F39E72AE16CD700290FBC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39E62AE16CD700290FBC /* NewsViewController.swift */; };
 		F10F39E92AE16CE500290FBC /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39E82AE16CE500290FBC /* NewsTableViewCell.swift */; };
 		F10F39EC2AE1702B00290FBC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39EB2AE1702B00290FBC /* TabBarController.swift */; };
+		F10F39EE2AE18A9A00290FBC /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39ED2AE18A9A00290FBC /* NewsApi.swift */; };
+		F10F39F02AE18AA800290FBC /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39EF2AE18AA800290FBC /* NewsModel.swift */; };
+		F10F39F32AE18B3600290FBC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = F10F39F22AE18B3600290FBC /* SDWebImage */; };
+		F10F39F52AE18B3600290FBC /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F10F39F42AE18B3600290FBC /* SDWebImageMapKit */; };
 		F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DB2AE0391D0018831B /* AppDelegate.swift */; };
 		F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DD2AE0391D0018831B /* SceneDelegate.swift */; };
 		F123C4E02AE0391D0018831B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DF2AE0391D0018831B /* SplashViewController.swift */; };
@@ -108,6 +112,8 @@
 		F10F39E62AE16CD700290FBC /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		F10F39E82AE16CE500290FBC /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		F10F39EB2AE1702B00290FBC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F10F39ED2AE18A9A00290FBC /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
+		F10F39EF2AE18AA800290FBC /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		F123C4D82AE0391D0018831B /* Quotex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F123C4DB2AE0391D0018831B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F123C4DD2AE0391D0018831B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 				F10F397E2AE03CA600290FBC /* SnapKit-Dynamic in Frameworks */,
 				F10F39812AE03F8800290FBC /* FirebaseAnalytics in Frameworks */,
 				F10F398D2AE03F8800290FBC /* FirebaseAuth in Frameworks */,
+				F10F39F52AE18B3600290FBC /* SDWebImageMapKit in Frameworks */,
 				F10F39972AE03F8800290FBC /* FirebaseDynamicLinks in Frameworks */,
 				F10F39912AE03F8800290FBC /* FirebaseCrashlytics in Frameworks */,
 				F10F39A92AE03F8800290FBC /* FirebaseMLModelDownloader in Frameworks */,
@@ -146,6 +153,7 @@
 				F10F39B12AE03F8800290FBC /* FirebaseRemoteConfigSwift in Frameworks */,
 				F10F39852AE03F8800290FBC /* FirebaseAnalyticsSwift in Frameworks */,
 				F10F398B2AE03F8800290FBC /* FirebaseAppDistribution-Beta in Frameworks */,
+				F10F39F32AE18B3600290FBC /* SDWebImage in Frameworks */,
 				F10F39AF2AE03F8800290FBC /* FirebaseRemoteConfig in Frameworks */,
 				F10F39B32AE03F8800290FBC /* FirebaseStorage in Frameworks */,
 				F10F398F2AE03F8800290FBC /* FirebaseAuthCombine-Community in Frameworks */,
@@ -261,6 +269,8 @@
 			children = (
 				F10F39E62AE16CD700290FBC /* NewsViewController.swift */,
 				F10F39E82AE16CE500290FBC /* NewsTableViewCell.swift */,
+				F10F39ED2AE18A9A00290FBC /* NewsApi.swift */,
+				F10F39EF2AE18AA800290FBC /* NewsModel.swift */,
 			);
 			path = NewsModule;
 			sourceTree = "<group>";
@@ -408,6 +418,8 @@
 				F10F39B02AE03F8800290FBC /* FirebaseRemoteConfigSwift */,
 				F10F39B22AE03F8800290FBC /* FirebaseStorage */,
 				F10F39B42AE03F8800290FBC /* FirebaseStorageCombine-Community */,
+				F10F39F22AE18B3600290FBC /* SDWebImage */,
+				F10F39F42AE18B3600290FBC /* SDWebImageMapKit */,
 			);
 			productName = Quotex;
 			productReference = F123C4D82AE0391D0018831B /* Quotex.app */;
@@ -440,6 +452,7 @@
 			packageReferences = (
 				F10F397A2AE03CA600290FBC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F10F397F2AE03F8800290FBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F10F39F12AE18B3600290FBC /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = F123C4D92AE0391D0018831B /* Products */;
 			projectDirPath = "";
@@ -489,6 +502,7 @@
 				F10F39E92AE16CE500290FBC /* NewsTableViewCell.swift in Sources */,
 				F10F39EC2AE1702B00290FBC /* TabBarController.swift in Sources */,
 				F10F39D12AE12A9500290FBC /* QuizViewController.swift in Sources */,
+				F10F39EE2AE18A9A00290FBC /* NewsApi.swift in Sources */,
 				F10F39CA2AE0D7F800290FBC /* MainCollectionViewCell.swift in Sources */,
 				F10F39D82AE12AB700290FBC /* QuizBrain.swift in Sources */,
 				F10F39BA2AE03FCA00290FBC /* AppStorage.swift in Sources */,
@@ -499,6 +513,7 @@
 				F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */,
 				F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */,
 				F10F39C32AE0479000290FBC /* Onboarding2ViewController.swift in Sources */,
+				F10F39F02AE18AA800290FBC /* NewsModel.swift in Sources */,
 				F10F39B82AE03FAC00290FBC /* LoadingViewController.swift in Sources */,
 				F10F39D32AE12AA400290FBC /* QuizTableViewCell.swift in Sources */,
 				F10F39C82AE0D7E000290FBC /* SectionType.swift in Sources */,
@@ -732,6 +747,14 @@
 				minimumVersion = 10.16.0;
 			};
 		};
+		F10F39F12AE18B3600290FBC /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -879,6 +902,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F10F397F2AE03F8800290FBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		F10F39F22AE18B3600290FBC /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F10F39F12AE18B3600290FBC /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		F10F39F42AE18B3600290FBC /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F10F39F12AE18B3600290FBC /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -10,6 +10,8 @@ import SnapKit
 
 final class NewsViewController: UIViewController {
 
+    var articles: [Article] = []
+    
     // MARK: - UI
     
     private lazy var tableView: UITableView = {
@@ -33,6 +35,7 @@ final class NewsViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupNavigationBar()
+        loadArticles()
     }
     
     // MARK: - setupViews
@@ -50,6 +53,24 @@ final class NewsViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
+    
+    // MARK: - loadArticles
+    
+    func loadArticles() {
+        let newsAPI = NewsAPI() 
+        newsAPI.fetchArticles { [weak self] result in
+            switch result {
+            case .success(let articles):
+                DispatchQueue.main.async {
+                    self?.articles = articles
+                    self?.tableView.reloadData()
+                }
+            case .failure(let error):
+                print("Error fetching articles: \(error)")
+            }
+        }
+    }
+
     
     // MARK: - setupNavigationBar
     
@@ -69,7 +90,7 @@ final class NewsViewController: UIViewController {
 
 extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,6 +103,12 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.item == 0 {
             cell.newsTitleLabel.isHidden = false
         }
+        
+        if indexPath.row < articles.count {
+            let article = articles[indexPath.row]
+            cell.configure(with: article)
+        }
+        
         return cell
     }
     

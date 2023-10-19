@@ -123,7 +123,7 @@ final class WinViewController: UIViewController {
     }
 
     @objc private func closeButtonTapped() {
-        let controller = MainViewController()
+        let controller = TabBarController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -131,7 +131,7 @@ final class WinViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func nextLevelButtonTapped() {
-        let controller = MainViewController()
+        let controller = TabBarController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
