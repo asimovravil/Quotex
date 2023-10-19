@@ -14,6 +14,17 @@ final class MainCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
+    public lazy var quizLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Quizzes"
+        label.textAlignment = .center
+        label.textColor = AppColor.whiteCustom.uiColor
+        label.font = UIFont(name: "SFProDisplay-Regular", size: 24)
+        label.numberOfLines = 2
+        label.isHidden = true
+        return label
+    }()
+    
     private lazy var cellImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.masksToBounds = true
@@ -68,7 +79,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
     // MARK: - setupViews
     
     private func setupViews() {
-        [cellImageView, quizTitleLabel, quizSubTitleLabel, vectorImageView, accessImageView].forEach {
+        [quizLabel, cellImageView, quizTitleLabel, quizSubTitleLabel, vectorImageView, accessImageView].forEach {
             contentView.addSubview($0)
         }
     }
@@ -76,6 +87,9 @@ final class MainCollectionViewCell: UICollectionViewCell {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
+        quizLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(cellImageView.snp.top).offset(-24)
+        }
         cellImageView.snp.makeConstraints { make in
             make.size.equalTo(44)
         }

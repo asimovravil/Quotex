@@ -43,11 +43,26 @@ final class MainViewController: UIViewController {
         "15 Questions"
     ]
     
+    private let separatorImages = [
+        AppImage.bluesep1.uiImage,
+        AppImage.bluesep2.uiImage,
+        AppImage.bluesep3.uiImage,
+        AppImage.bluesep4.uiImage
+    ]
+    
     // MARK: - UI
     
     private lazy var shadeView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = AppImage.shademain.uiImage
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    private lazy var separatorImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = AppImage.bluesep1.uiImage
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -79,6 +94,7 @@ final class MainViewController: UIViewController {
     private func setupViews() {
         view.addSubview(shadeView)
         view.addSubview(mainCollectionView)
+        mainCollectionView.addSubview(separatorImageView)
         view.backgroundColor = AppColor.blackCustom.uiColor
     }
     
@@ -88,6 +104,10 @@ final class MainViewController: UIViewController {
         shadeView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(30)
             make.centerX.equalToSuperview()
+        }
+        separatorImageView.snp.makeConstraints { make in
+            make.top.equalTo(mainCollectionView.snp.top).offset(230)
+            make.centerX.equalTo(mainCollectionView.snp.centerX)
         }
         mainCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -173,7 +193,7 @@ final class MainViewController: UIViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 32
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
+            top: 65,
             leading: 16,
             bottom: 10,
             trailing: -16
@@ -208,7 +228,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
                 withReuseIdentifier: BannerCollectionViewCell.reuseID,
                 for: indexPath
             ) as? BannerCollectionViewCell else {
-                fatalError("Could not cast to QuizCollectionViewCell")
+                fatalError("Could not cast to BannerCollectionViewCell")
             }
             cell.setBannerImage(bannerImages[indexPath.item])
             return cell
@@ -224,6 +244,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.setQuizSubTitle(quizSubTitle[indexPath.item])
             
             if indexPath.item == 0 {
+                cell.quizLabel.isHidden = false
                 cell.accessImageView.image = AppImage.timegreen.uiImage
             } else {
                 cell.accessImageView.image = AppImage.closered.uiImage

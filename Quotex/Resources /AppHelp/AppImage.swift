@@ -49,6 +49,10 @@ enum AppImage: String, AppImageProtocol {
     case vectormain
     case closered
     case timegreen
+    case bluesep1
+    case bluesep2
+    case bluesep3
+    case bluesep4
     
     // MARK: - Onboarding
     
