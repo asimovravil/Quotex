@@ -40,6 +40,15 @@ enum AppImage: String, AppImageProtocol {
     case banner2
     case banner3
     case banner4
+    case shademain
+    case cell1
+    case cell2
+    case cell3
+    case cell4
+    case cell5
+    case vectormain
+    case closered
+    case timegreen
     
     // MARK: - Onboarding
     

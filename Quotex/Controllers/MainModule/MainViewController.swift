@@ -19,15 +19,48 @@ final class MainViewController: UIViewController {
         AppImage.banner4.uiImage
     ]
     
+    private let cellImages = [
+        AppImage.cell1.uiImage,
+        AppImage.cell2.uiImage,
+        AppImage.cell3.uiImage,
+        AppImage.cell4.uiImage,
+        AppImage.cell5.uiImage
+    ]
+    
+    private let quizTitle = [
+        "Bulls & Bears",
+        "TraderCrunch",
+        "Trading Titans",
+        "Market Focus",
+        "Stock Surge"
+    ]
+    
+    private let quizSubTitle = [
+        "10 Questions",
+        "10 Questions",
+        "15 Questions",
+        "12 Questions",
+        "15 Questions"
+    ]
+    
     // MARK: - UI
     
-    lazy var mainCollectionView: UICollectionView = {
+    private lazy var shadeView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = AppImage.shademain.uiImage
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    private lazy var mainCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.reuseID)
         collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: BannerCollectionViewCell.reuseID)
         collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
@@ -38,11 +71,13 @@ final class MainViewController: UIViewController {
         
         setupViews()
         setupConstraints()
+        setupNavigationBar()
     }
     
     // MARK: - setupViews
     
     private func setupViews() {
+        view.addSubview(shadeView)
         view.addSubview(mainCollectionView)
         view.backgroundColor = AppColor.blackCustom.uiColor
     }
@@ -50,9 +85,26 @@ final class MainViewController: UIViewController {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
+        shadeView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(30)
+            make.centerX.equalToSuperview()
+        }
         mainCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    // MARK: - setupNavigationBar
+    
+    private func setupNavigationBar() {
+        let titleLabel = UILabel()
+        titleLabel.text = "Hot News"
+        titleLabel.font = UIFont(name: "SFProDisplay-Regular", size: 16)
+        titleLabel.textColor = AppColor.whiteCustom.uiColor
+        titleLabel.sizeToFit()
+        
+        navigationItem.titleView = titleLabel
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
@@ -112,10 +164,10 @@ final class MainViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(180)
+                heightDimension: .absolute(50)
             ),
             subitem: item,
-            count: 2
+            count: 1
         )
         // Section
         let section = NSCollectionLayoutSection(group: group)
@@ -167,6 +219,15 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             ) as? MainCollectionViewCell else {
                 fatalError("Could not cast to MainCollectionViewCell")
             }
+            cell.setCellImage(cellImages[indexPath.item])
+            cell.setQuizTitle(quizTitle[indexPath.item])
+            cell.setQuizSubTitle(quizSubTitle[indexPath.item])
+            
+            if indexPath.item == 0 {
+                cell.accessImageView.image = AppImage.timegreen.uiImage
+            } else {
+                cell.accessImageView.image = AppImage.closered.uiImage
+            }
             return cell
         }
     }
@@ -177,7 +238,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         case .promos:
             return bannerImages.count
         case .main:
-            return 6
+            return 5
         }
     }
 }

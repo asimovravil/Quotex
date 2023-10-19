@@ -72,7 +72,7 @@ final class Onboarding2ViewController: UIViewController {
     // MARK: - setupViews
     
     private func setupViews() {
-        [skipButton, titleLabel, subTitleLabel, onboardingLogoView, startButton].forEach {
+        [skipButton, onboardingLogoView, titleLabel, subTitleLabel, startButton].forEach {
             view.addSubview($0)
         }
         view.backgroundColor = AppColor.blackCustom.uiColor
