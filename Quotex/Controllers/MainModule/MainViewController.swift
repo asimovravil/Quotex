@@ -214,7 +214,7 @@ final class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
@@ -260,6 +260,23 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             return bannerImages.count
         case .main:
             return 5
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let visibleRect = CGRect(origin: mainCollectionView.contentOffset, size: mainCollectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        guard let indexPath = mainCollectionView.indexPathForItem(at: visiblePoint),
+              indexPath.section == 0 /* promo section index */ else {
+            return
+        }
+        
+        updateSeparatorImage(for: indexPath)
+    }
+    
+    private func updateSeparatorImage(for indexPath: IndexPath) {
+        if indexPath.item < separatorImages.count {
+            separatorImageView.image = separatorImages[indexPath.item]
         }
     }
 }
