@@ -79,4 +79,13 @@ enum AppImage: String, AppImageProtocol {
     case rateUs
     case shareApp
     case privacyPolicy
+    
+    // MARK: - TabBar
+    
+    case homeTabActive
+    case newsTabActive
+    case settingsTabActive
+    case homeTabInactive
+    case newsTabInactive
+    case settingsTabInactive
 }

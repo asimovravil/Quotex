@@ -65,6 +65,9 @@
 		F10F39DB2AE15C5D00290FBC /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39DA2AE15C5D00290FBC /* WinViewController.swift */; };
 		F10F39E02AE162C500290FBC /* LoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39DF2AE162C500290FBC /* LoseViewController.swift */; };
 		F10F39E32AE1663500290FBC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39E22AE1663500290FBC /* SettingsViewController.swift */; };
+		F10F39E72AE16CD700290FBC /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39E62AE16CD700290FBC /* NewsViewController.swift */; };
+		F10F39E92AE16CE500290FBC /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39E82AE16CE500290FBC /* NewsTableViewCell.swift */; };
+		F10F39EC2AE1702B00290FBC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39EB2AE1702B00290FBC /* TabBarController.swift */; };
 		F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DB2AE0391D0018831B /* AppDelegate.swift */; };
 		F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DD2AE0391D0018831B /* SceneDelegate.swift */; };
 		F123C4E02AE0391D0018831B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DF2AE0391D0018831B /* SplashViewController.swift */; };
@@ -102,6 +105,9 @@
 		F10F39DA2AE15C5D00290FBC /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		F10F39DF2AE162C500290FBC /* LoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseViewController.swift; sourceTree = "<group>"; };
 		F10F39E22AE1663500290FBC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F10F39E62AE16CD700290FBC /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		F10F39E82AE16CE500290FBC /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		F10F39EB2AE1702B00290FBC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		F123C4D82AE0391D0018831B /* Quotex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F123C4DB2AE0391D0018831B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F123C4DD2AE0391D0018831B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -250,6 +256,23 @@
 			path = SettingsModule;
 			sourceTree = "<group>";
 		};
+		F10F39E52AE16CC400290FBC /* NewsModule */ = {
+			isa = PBXGroup;
+			children = (
+				F10F39E62AE16CD700290FBC /* NewsViewController.swift */,
+				F10F39E82AE16CE500290FBC /* NewsTableViewCell.swift */,
+			);
+			path = NewsModule;
+			sourceTree = "<group>";
+		};
+		F10F39EA2AE1701300290FBC /* TabBarModule */ = {
+			isa = PBXGroup;
+			children = (
+				F10F39EB2AE1702B00290FBC /* TabBarController.swift */,
+			);
+			path = TabBarModule;
+			sourceTree = "<group>";
+		};
 		F123C4CF2AE0391D0018831B = {
 			isa = PBXGroup;
 			children = (
@@ -291,11 +314,13 @@
 			isa = PBXGroup;
 			children = (
 				F10F39B62AE03F9000290FBC /* SplashScreen */,
+				F10F39EA2AE1701300290FBC /* TabBarModule */,
 				F10F39BF2AE0410400290FBC /* OnboardingModule */,
 				F10F39C42AE0D79A00290FBC /* MainModule */,
 				F10F39CF2AE12A5500290FBC /* QuizModule */,
 				F10F39D92AE15C2400290FBC /* WinModule */,
 				F10F39DE2AE162B000290FBC /* LoseModule */,
+				F10F39E52AE16CC400290FBC /* NewsModule */,
 				F10F39E12AE1662400290FBC /* SettingsModule */,
 			);
 			path = Controllers;
@@ -461,6 +486,8 @@
 				F10F39772AE03B5000290FBC /* AppImage.swift in Sources */,
 				F10F39C12AE0411700290FBC /* Onboarding1ViewController.swift in Sources */,
 				F10F39CC2AE0D80100290FBC /* BannerCollectionViewCell.swift in Sources */,
+				F10F39E92AE16CE500290FBC /* NewsTableViewCell.swift in Sources */,
+				F10F39EC2AE1702B00290FBC /* TabBarController.swift in Sources */,
 				F10F39D12AE12A9500290FBC /* QuizViewController.swift in Sources */,
 				F10F39CA2AE0D7F800290FBC /* MainCollectionViewCell.swift in Sources */,
 				F10F39D82AE12AB700290FBC /* QuizBrain.swift in Sources */,
@@ -468,6 +495,7 @@
 				F10F39BC2AE03FDE00290FBC /* ExternalService.swift in Sources */,
 				F10F39DB2AE15C5D00290FBC /* WinViewController.swift in Sources */,
 				F10F39E02AE162C500290FBC /* LoseViewController.swift in Sources */,
+				F10F39E72AE16CD700290FBC /* NewsViewController.swift in Sources */,
 				F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */,
 				F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */,
 				F10F39C32AE0479000290FBC /* Onboarding2ViewController.swift in Sources */,
