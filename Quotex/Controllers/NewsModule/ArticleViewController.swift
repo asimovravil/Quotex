@@ -1,5 +1,5 @@
 //
-//  NewsViewController.swift
+//  ArticleViewController.swift
 //  Quotex
 //
 //  Created by Ravil on 19.10.2023.
@@ -7,31 +7,22 @@
 
 import UIKit
 import SnapKit
+import SDWebImage
 
-final class NewsViewController: UIViewController {
+final class ArticleViewController: UIViewController {
 
     var articles: [Article] = []
     
     // MARK: - UI
     
-    public lazy var newsTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Latest News"
-        label.textAlignment = .center
-        label.textColor = AppColor.whiteCustom.uiColor
-        label.font = UIFont(name: "SFProDisplay-Regular", size: 24)
-        label.numberOfLines = 2
-        return label
-    }()
-    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.register(NewsTableViewCell.self, forCellReuseIdentifier: NewsTableViewCell.reuseID)
+        tableView.register(ArticleTableViewCell.self, forCellReuseIdentifier: ArticleTableViewCell.reuseID)
         tableView.layer.cornerRadius = 26
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .clear
-        tableView.rowHeight = 216
+        tableView.rowHeight = 1000
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         return tableView
@@ -44,14 +35,13 @@ final class NewsViewController: UIViewController {
 
         setupViews()
         setupConstraints()
-        setupNavigationBar()
         loadArticles()
     }
     
     // MARK: - setupViews
     
     private func setupViews() {
-        [newsTitleLabel, tableView].forEach {
+        [tableView].forEach() {
             view.addSubview($0)
         }
     }
@@ -59,20 +49,15 @@ final class NewsViewController: UIViewController {
     // MARK: - setupConstraints
     
     private func setupConstraints() {
-        newsTitleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(70)
-            make.leading.equalToSuperview().offset(16)
-        }
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(newsTitleLabel.snp.bottom).offset(24)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
     
     // MARK: - loadArticles
     
     func loadArticles() {
-        let newsAPI = NewsAPI() 
+        let newsAPI = NewsAPI()
         newsAPI.fetchArticles { [weak self] result in
             switch result {
             case .success(let articles):
@@ -85,31 +70,16 @@ final class NewsViewController: UIViewController {
             }
         }
     }
-
-    // MARK: - setupNavigationBar
-    
-    private func setupNavigationBar() {
-        let titleLabel = UILabel()
-        titleLabel.text = "Latest News"
-        titleLabel.font = UIFont(name: "SFProDisplay-Regular", size: 24)
-        titleLabel.textColor = AppColor.whiteCustom.uiColor
-        titleLabel.sizeToFit()
-
-        let leftItem = UIBarButtonItem(customView: titleLabel)
-        navigationItem.leftBarButtonItem = leftItem
-
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    }
 }
 
-extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
+extension ArticleViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.reuseID, for: indexPath) as? NewsTableViewCell else {
-            fatalError("Could not cast to NewsTableViewCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.reuseID, for: indexPath) as? ArticleTableViewCell else {
+            fatalError("Could not cast to ArticleTableViewCell")
         }
         cell.selectionStyle = .none
         cell.backgroundColor = .clear
