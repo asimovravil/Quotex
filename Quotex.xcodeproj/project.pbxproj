@@ -54,6 +54,10 @@
 		F10F39BE2AE0403000290FBC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F10F39BD2AE0403000290FBC /* GoogleService-Info.plist */; };
 		F10F39C12AE0411700290FBC /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39C02AE0411700290FBC /* Onboarding1ViewController.swift */; };
 		F10F39C32AE0479000290FBC /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39C22AE0479000290FBC /* Onboarding2ViewController.swift */; };
+		F10F39C62AE0D7B900290FBC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39C52AE0D7B900290FBC /* MainViewController.swift */; };
+		F10F39C82AE0D7E000290FBC /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39C72AE0D7E000290FBC /* SectionType.swift */; };
+		F10F39CA2AE0D7F800290FBC /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39C92AE0D7F800290FBC /* MainCollectionViewCell.swift */; };
+		F10F39CC2AE0D80100290FBC /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F39CB2AE0D80100290FBC /* BannerCollectionViewCell.swift */; };
 		F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DB2AE0391D0018831B /* AppDelegate.swift */; };
 		F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DD2AE0391D0018831B /* SceneDelegate.swift */; };
 		F123C4E02AE0391D0018831B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DF2AE0391D0018831B /* SplashViewController.swift */; };
@@ -80,6 +84,10 @@
 		F10F39BD2AE0403000290FBC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F10F39C02AE0411700290FBC /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
 		F10F39C22AE0479000290FBC /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
+		F10F39C52AE0D7B900290FBC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F10F39C72AE0D7E000290FBC /* SectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
+		F10F39C92AE0D7F800290FBC /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		F10F39CB2AE0D80100290FBC /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		F123C4D82AE0391D0018831B /* Quotex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F123C4DB2AE0391D0018831B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F123C4DD2AE0391D0018831B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +182,17 @@
 			path = OnboardingModule;
 			sourceTree = "<group>";
 		};
+		F10F39C42AE0D79A00290FBC /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				F10F39C52AE0D7B900290FBC /* MainViewController.swift */,
+				F10F39C72AE0D7E000290FBC /* SectionType.swift */,
+				F10F39C92AE0D7F800290FBC /* MainCollectionViewCell.swift */,
+				F10F39CB2AE0D80100290FBC /* BannerCollectionViewCell.swift */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
 		F123C4CF2AE0391D0018831B = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +235,7 @@
 			children = (
 				F10F39B62AE03F9000290FBC /* SplashScreen */,
 				F10F39BF2AE0410400290FBC /* OnboardingModule */,
+				F10F39C42AE0D79A00290FBC /* MainModule */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -373,15 +393,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F123C4E02AE0391D0018831B /* SplashViewController.swift in Sources */,
+				F10F39C62AE0D7B900290FBC /* MainViewController.swift in Sources */,
 				F10F39792AE03B5500290FBC /* AppColor.swift in Sources */,
 				F10F39772AE03B5000290FBC /* AppImage.swift in Sources */,
 				F10F39C12AE0411700290FBC /* Onboarding1ViewController.swift in Sources */,
+				F10F39CC2AE0D80100290FBC /* BannerCollectionViewCell.swift in Sources */,
+				F10F39CA2AE0D7F800290FBC /* MainCollectionViewCell.swift in Sources */,
 				F10F39BA2AE03FCA00290FBC /* AppStorage.swift in Sources */,
 				F10F39BC2AE03FDE00290FBC /* ExternalService.swift in Sources */,
 				F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */,
 				F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */,
 				F10F39C32AE0479000290FBC /* Onboarding2ViewController.swift in Sources */,
 				F10F39B82AE03FAC00290FBC /* LoadingViewController.swift in Sources */,
+				F10F39C82AE0D7E000290FBC /* SectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

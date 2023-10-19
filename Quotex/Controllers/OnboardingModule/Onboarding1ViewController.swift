@@ -93,6 +93,7 @@ final class Onboarding1ViewController: UIViewController {
         }
         onboardingLogoView.snp.makeConstraints { make in
             make.top.equalTo(subTitleLabel.snp.bottom).offset(100)
+            make.bottom.equalToSuperview()
             make.centerX.equalToSuperview()
         }
         nextButton.snp.makeConstraints { make in
@@ -112,7 +113,7 @@ final class Onboarding1ViewController: UIViewController {
     }
 
     @objc private func skipButtonTapped() {
-        let controller = SplashViewController()
+        let controller = MainViewController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }

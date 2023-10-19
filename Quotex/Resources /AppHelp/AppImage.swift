@@ -36,6 +36,10 @@ enum AppImage: String, AppImageProtocol {
     
     case quotexLogo
     case splashLoading
+    case banner1
+    case banner2
+    case banner3
+    case banner4
     
     // MARK: - Onboarding
     

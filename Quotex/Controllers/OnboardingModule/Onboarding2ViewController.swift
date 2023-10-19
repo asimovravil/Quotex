@@ -112,7 +112,7 @@ final class Onboarding2ViewController: UIViewController {
     }
 
     @objc private func skipButtonTapped() {
-        let controller = SplashViewController()
+        let controller = MainViewController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -120,7 +120,7 @@ final class Onboarding2ViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func startButtonTapped() {
-        let controller = SplashViewController()
+        let controller = MainViewController()
         controller.navigationItem.hidesBackButton = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
