@@ -121,9 +121,10 @@ final class ArticleTableViewCell: UITableViewCell {
     
     func configure(with article: Article) {
         newsLabel.text = article.title
-        descLabel.text = article.description
-        if let url = article.urlToImage {
+        if let urlString = article.urlToImage, let url = URL(string: urlString) {
             cardNewsView.sd_setImage(with: url, completed: nil)
+        } else {
+            cardNewsView.image = AppImage.newscell.uiImage
         }
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM d, yyyy HH:mm"

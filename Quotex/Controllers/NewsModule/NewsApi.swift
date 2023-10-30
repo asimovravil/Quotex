@@ -30,6 +30,7 @@ class NewsAPI {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let articleResponse = try decoder.decode(ArticleResponse.self, from: data)
+                
                 completion(.success(articleResponse.articles))
             } catch {
                 completion(.failure(error))
