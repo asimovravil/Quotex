@@ -79,6 +79,15 @@
 		F123C4E02AE0391D0018831B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123C4DF2AE0391D0018831B /* SplashViewController.swift */; };
 		F123C4E52AE0391F0018831B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F123C4E42AE0391F0018831B /* Assets.xcassets */; };
 		F123C4E82AE0391F0018831B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F123C4E62AE0391F0018831B /* LaunchScreen.storyboard */; };
+		F17A35DE2AF17BA600B55762 /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = F17A35DD2AF17BA600B55762 /* OneSignalExtension */; };
+		F17A35E02AF17BA600B55762 /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = F17A35DF2AF17BA600B55762 /* OneSignalFramework */; };
+		F17A35E22AF17BA600B55762 /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = F17A35E12AF17BA600B55762 /* OneSignalInAppMessages */; };
+		F17A35E42AF17BA600B55762 /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = F17A35E32AF17BA600B55762 /* OneSignalLocation */; };
+		F17A35EA2AF17BB700B55762 /* SavedSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A35E52AF17BB600B55762 /* SavedSettingsManager.swift */; };
+		F17A35EB2AF17BB700B55762 /* StructedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A35E62AF17BB700B55762 /* StructedSettings.swift */; };
+		F17A35EC2AF17BB700B55762 /* RequestResponseManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A35E72AF17BB700B55762 /* RequestResponseManagerService.swift */; };
+		F17A35ED2AF17BB700B55762 /* LowerBarViewMegaKek.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A35E82AF17BB700B55762 /* LowerBarViewMegaKek.swift */; };
+		F17A35EE2AF17BB700B55762 /* ReselectedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17A35E92AF17BB700B55762 /* ReselectedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +134,11 @@
 		F123C4E42AE0391F0018831B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F123C4E72AE0391F0018831B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F123C4E92AE0391F0018831B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F17A35E52AF17BB600B55762 /* SavedSettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedSettingsManager.swift; sourceTree = "<group>"; };
+		F17A35E62AF17BB700B55762 /* StructedSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructedSettings.swift; sourceTree = "<group>"; };
+		F17A35E72AF17BB700B55762 /* RequestResponseManagerService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestResponseManagerService.swift; sourceTree = "<group>"; };
+		F17A35E82AF17BB700B55762 /* LowerBarViewMegaKek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LowerBarViewMegaKek.swift; sourceTree = "<group>"; };
+		F17A35E92AF17BB700B55762 /* ReselectedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReselectedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,11 +156,13 @@
 				F10F398D2AE03F8800290FBC /* FirebaseAuth in Frameworks */,
 				F10F39F52AE18B3600290FBC /* SDWebImageMapKit in Frameworks */,
 				F10F39972AE03F8800290FBC /* FirebaseDynamicLinks in Frameworks */,
+				F17A35E22AF17BA600B55762 /* OneSignalInAppMessages in Frameworks */,
 				F10F39912AE03F8800290FBC /* FirebaseCrashlytics in Frameworks */,
 				F10F39A92AE03F8800290FBC /* FirebaseMLModelDownloader in Frameworks */,
 				F10F39952AE03F8800290FBC /* FirebaseDatabaseSwift in Frameworks */,
 				F10F39992AE03F8800290FBC /* FirebaseFirestore in Frameworks */,
 				F10F39A72AE03F8800290FBC /* FirebaseInstallations in Frameworks */,
+				F17A35DE2AF17BA600B55762 /* OneSignalExtension in Frameworks */,
 				F10F39A12AE03F8800290FBC /* FirebaseFunctionsCombine-Community in Frameworks */,
 				F10F399B2AE03F8800290FBC /* FirebaseFirestoreCombine-Community in Frameworks */,
 				F10F39932AE03F8800290FBC /* FirebaseDatabase in Frameworks */,
@@ -156,12 +172,14 @@
 				F10F39A52AE03F8800290FBC /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				F10F39B12AE03F8800290FBC /* FirebaseRemoteConfigSwift in Frameworks */,
 				F10F39852AE03F8800290FBC /* FirebaseAnalyticsSwift in Frameworks */,
+				F17A35E42AF17BA600B55762 /* OneSignalLocation in Frameworks */,
 				F10F398B2AE03F8800290FBC /* FirebaseAppDistribution-Beta in Frameworks */,
 				F10F39F32AE18B3600290FBC /* SDWebImage in Frameworks */,
 				F10F39AF2AE03F8800290FBC /* FirebaseRemoteConfig in Frameworks */,
 				F10F39B32AE03F8800290FBC /* FirebaseStorage in Frameworks */,
 				F10F398F2AE03F8800290FBC /* FirebaseAuthCombine-Community in Frameworks */,
 				F10F39B52AE03F8800290FBC /* FirebaseStorageCombine-Community in Frameworks */,
+				F17A35E02AF17BA600B55762 /* OneSignalFramework in Frameworks */,
 				F10F39A32AE03F8800290FBC /* FirebaseInAppMessaging-Beta in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +217,11 @@
 		F10F39B62AE03F9000290FBC /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
+				F17A35E82AF17BB700B55762 /* LowerBarViewMegaKek.swift */,
+				F17A35E72AF17BB700B55762 /* RequestResponseManagerService.swift */,
+				F17A35E92AF17BB700B55762 /* ReselectedViewController.swift */,
+				F17A35E52AF17BB600B55762 /* SavedSettingsManager.swift */,
+				F17A35E62AF17BB700B55762 /* StructedSettings.swift */,
 				F123C4DF2AE0391D0018831B /* SplashViewController.swift */,
 				F10F39B72AE03FAC00290FBC /* LoadingViewController.swift */,
 			);
@@ -426,6 +449,10 @@
 				F10F39B42AE03F8800290FBC /* FirebaseStorageCombine-Community */,
 				F10F39F22AE18B3600290FBC /* SDWebImage */,
 				F10F39F42AE18B3600290FBC /* SDWebImageMapKit */,
+				F17A35DD2AF17BA600B55762 /* OneSignalExtension */,
+				F17A35DF2AF17BA600B55762 /* OneSignalFramework */,
+				F17A35E12AF17BA600B55762 /* OneSignalInAppMessages */,
+				F17A35E32AF17BA600B55762 /* OneSignalLocation */,
 			);
 			productName = Quotex;
 			productReference = F123C4D82AE0391D0018831B /* Quotex.app */;
@@ -459,6 +486,7 @@
 				F10F397A2AE03CA600290FBC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F10F397F2AE03F8800290FBC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F10F39F12AE18B3600290FBC /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				F17A35DC2AF17BA600B55762 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
 			);
 			productRefGroup = F123C4D92AE0391D0018831B /* Products */;
 			projectDirPath = "";
@@ -502,15 +530,18 @@
 				F10F39E32AE1663500290FBC /* SettingsViewController.swift in Sources */,
 				F10F39792AE03B5500290FBC /* AppColor.swift in Sources */,
 				F10F39D62AE12AAF00290FBC /* Question.swift in Sources */,
+				F17A35ED2AF17BB700B55762 /* LowerBarViewMegaKek.swift in Sources */,
 				F10F39772AE03B5000290FBC /* AppImage.swift in Sources */,
 				F10F39C12AE0411700290FBC /* Onboarding1ViewController.swift in Sources */,
 				F10F39CC2AE0D80100290FBC /* BannerCollectionViewCell.swift in Sources */,
+				F17A35EA2AF17BB700B55762 /* SavedSettingsManager.swift in Sources */,
 				F10F39E92AE16CE500290FBC /* NewsTableViewCell.swift in Sources */,
 				F10F39EC2AE1702B00290FBC /* TabBarController.swift in Sources */,
 				F10F39D12AE12A9500290FBC /* QuizViewController.swift in Sources */,
 				F10F39EE2AE18A9A00290FBC /* NewsApi.swift in Sources */,
 				F10F39FB2AE191F300290FBC /* ArticleTableViewCell.swift in Sources */,
 				F10F39CA2AE0D7F800290FBC /* MainCollectionViewCell.swift in Sources */,
+				F17A35EE2AF17BB700B55762 /* ReselectedViewController.swift in Sources */,
 				F10F39F92AE190BB00290FBC /* ArticleViewController.swift in Sources */,
 				F10F39D82AE12AB700290FBC /* QuizBrain.swift in Sources */,
 				F10F39BA2AE03FCA00290FBC /* AppStorage.swift in Sources */,
@@ -518,6 +549,8 @@
 				F10F39DB2AE15C5D00290FBC /* WinViewController.swift in Sources */,
 				F10F39E02AE162C500290FBC /* LoseViewController.swift in Sources */,
 				F10F39E72AE16CD700290FBC /* NewsViewController.swift in Sources */,
+				F17A35EC2AF17BB700B55762 /* RequestResponseManagerService.swift in Sources */,
+				F17A35EB2AF17BB700B55762 /* StructedSettings.swift in Sources */,
 				F123C4DC2AE0391D0018831B /* AppDelegate.swift in Sources */,
 				F123C4DE2AE0391D0018831B /* SceneDelegate.swift in Sources */,
 				F10F39C32AE0479000290FBC /* Onboarding2ViewController.swift in Sources */,
@@ -763,6 +796,14 @@
 				minimumVersion = 5.18.3;
 			};
 		};
+		F17A35DC2AF17BA600B55762 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -920,6 +961,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F10F39F12AE18B3600290FBC /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		F17A35DD2AF17BA600B55762 /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F17A35DC2AF17BA600B55762 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalExtension;
+		};
+		F17A35DF2AF17BA600B55762 /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F17A35DC2AF17BA600B55762 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalFramework;
+		};
+		F17A35E12AF17BA600B55762 /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F17A35DC2AF17BA600B55762 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalInAppMessages;
+		};
+		F17A35E32AF17BA600B55762 /* OneSignalLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F17A35DC2AF17BA600B55762 /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalLocation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
